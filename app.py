@@ -6,6 +6,7 @@ from sqlalchemy import func
 from views.edital import show_edital_view
 from views.dashboard import show_dashboard_view
 from views.flashcards import show_flashcards_view
+from views.questoes import show_questoes_view
 
 
 st.set_page_config(page_title="Hunter-Posse: Gestor de Concursos", layout="wide")
@@ -18,7 +19,7 @@ def get_session():
     return SessionLocal()
 
 
-menu = st.sidebar.selectbox("Navegação", ["Dashboard", "Edital Verticalizado", "Exportar Flashcards"])
+menu = st.sidebar.selectbox("Navegação", ["Dashboard", "Edital Verticalizado", "Lançar Questões", "Exportar Flashcards"])
 
 
 if menu == "Dashboard":
@@ -27,6 +28,10 @@ if menu == "Dashboard":
 
 elif menu == "Edital Verticalizado":
     show_edital_view()
+
+
+elif menu == "Lançar Questões":
+    show_questoes_view()
 
 
 elif menu == "Exportar Flashcards":
